@@ -147,3 +147,47 @@ export const redirectRouter = function (urls) {
 
 // 返回
 export const goBack = (delta = 1) => uni.navigateBack({ delta });
+export const getToken = () => uni.getStorageSync("token");
+/**
+ * 获取浏览器url中的参数
+ */
+export const getUrlParam = function (name) {
+  let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+  let r = window.location.search.substr(1).match(reg);
+  if (r != null) {
+    return decodeURIComponent(r[2]);
+  }
+  return "";
+};
+// 设置storage
+export const setStorage = function (key, value) {
+  try {
+    uni.setStorageSync(key, value);
+    return true;
+  } catch (e) {
+    console.error("setStorage Error:", e);
+    return false;
+  }
+};
+
+// 获取storage
+export const getStorage = function (key) {
+  try {
+    const value = uni.getStorageSync(key);
+    return value ? value : null;
+  } catch (e) {
+    console.error("getStorage Error:", e);
+    return null;
+  }
+};
+
+// 删除storage
+export const removeStorage = function (key) {
+  try {
+    uni.removeStorageSync(key);
+    return true;
+  } catch (e) {
+    console.error("removeStorage Error:", e);
+    return false;
+  }
+};
