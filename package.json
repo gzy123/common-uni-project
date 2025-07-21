@@ -1,0 +1,71 @@
+{
+  "name": "common-project",
+  "version": "1.0.0",
+  "description": "common-project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzy123/common-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gzy123/common-project/issues"
+  },
+  "homepage": "https://github.com/gzy123/common-project#readme",
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.5.5",
+    "axios": "^1.7.2",
+    "bignumber.js": "^9.1.2",
+    "dayjs": "^1.11.11",
+    "lodash": "^4.17.21",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persist-uni": "^1.3.1"
+  },
+  "uni-app": {
+    "scripts": {
+      "h5-dev": {
+        "title": "H5开发环境",
+        "env": {
+          "UNI_PLATFORM": "h5",
+          "name": "dev"
+        },
+        "define": {
+          "H5-DEV": true
+        }
+      },
+      "h5-prod": {
+        "title": "H5生产环境",
+        "env": {
+          "UNI_PLATFORM": "h5",
+          "name": "prod"
+        },
+        "define": {
+          "H5-PROD": true
+        }
+      },
+      "mp-weixin-dev": {
+        "title": "微信小程序:开发环境",
+        "env": {
+          "UNI_PLATFORM": "mp-weixin",
+          "name": "dev"
+        }
+      },
+      "mp-weixin-prod": {
+        "title": "微信小程序:生产环境",
+        "env": {
+          "UNI_PLATFORM": "mp-weixin",
+          "name": "prod"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "js-md5": "^0.8.3",
+    "vconsole": "^3.15.1",
+    "weixin-js-sdk": "^1.6.5"
+  }
+}

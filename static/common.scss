@@ -1,0 +1,474 @@
+@import '@/static/base.scss';
+.flex-1{
+    flex: 1;
+}
+.flex{
+    display: flex;
+}
+// 必填项
+.require {
+    color: $error-color;
+}
+
+/* 自定义按钮样式 */
+.custom-btn {
+    display: flex;
+    .btn {
+        display: block;
+        width: 100%;
+        font-size: 30rpx;
+    }
+    button {
+        width: 100%;
+        height: 94rpx;
+        line-height: 94rpx;
+        color: #fff;
+        font-size: 34rpx;
+        &::after {
+            display: none;
+        }
+    }
+    button[type=primary] {
+        background-color: $brand-color;
+        letter-spacing: 1px;
+    }
+    button[type=primary][plain] {
+        color: $brand-color;
+        border: 1px solid $brand-color;
+        background-color: transparent;
+    }
+    button[type=success] {
+        background-color: $success-color;
+        letter-spacing: 1px;
+    }
+    button[type=success][plain] {
+        color: $success-color;
+        border: 1px solid $success-color;
+        background-color: transparent;
+    }
+    button[type=info] {
+        background-color: $gray-color;
+        letter-spacing: 1px;
+    }
+    button[type=info][plain] {
+        color: $text-color;
+        border: 1px solid $border-color;
+        background-color: transparent;
+    }
+    button[disabled] {
+        background-color: $disabled-color;
+    }
+}
+
+/* 内容溢出一行展示 */
+.overflow {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// 内容溢出一行展示,超出显示
+.overflow1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// 右侧清除文本内容按钮
+.icon-right-clear-btn {
+    position: absolute;
+    bottom: 30rpx;
+    right: 0;
+    z-index: 9;
+    padding: 15rpx;
+    color: #ccc;
+}
+
+// 吸底按钮
+.fixed-bottom-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    height: 200rpx;
+    padding: 0 30rpx;
+    background-color: #fff;
+    border-top: 1px solid $border-color;
+    .btn {
+        width: 100%;
+    }
+}
+
+.common-list{
+    position: relative;
+    &-card{
+        background-color: #fff;
+        margin: 0 30rpx 20rpx;
+        border-radius: 14rpx;
+        margin-top: 20rpx;
+        display: flex;
+        &:first-child{
+            margin-top: 20rpx;
+        }
+    }
+    &-action{
+        display: flex;
+        align-items: center;
+    }
+    &-link{
+        color: #4364BB;
+        font-size: 28rpx;
+        padding-left: 40rpx;
+        font-weight: bold;
+    }
+    &-filters{
+        margin-left: 20rpx;
+        color: #A0AEC0;
+        font-size: 26rpx;
+        &-icon {
+            width: 20rpx;
+            height: 20rpx;
+            margin-left: 5rpx;
+        }
+        &.show-filters{
+            .common-list-filters-icon{
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &-content{
+        flex: 1;
+        position: relative;
+        padding-bottom: 26rpx;
+        &.flex-box{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        &-body{
+            padding: 20rpx 30rpx 0;
+        }
+        &-head{
+            word-break: break-all;
+            width: 100%;
+            min-height: 70rpx;
+            padding: 0 20rpx;
+            font-size: 24rpx;
+            display: flex;
+            align-items: center;
+            color: #888888;
+            border-bottom: 1px solid #EEEEEE;
+        }
+        &-title{
+            word-break: break-all;
+            font-size: 32rpx;
+            font-weight: bold;
+            line-height: 45rpx;
+            margin-bottom: 14rpx;
+        }
+        &-desc{
+            font-size: 30rpx;
+            line-height: 42rpx;
+            margin-bottom: 8rpx;
+            word-break: break-all;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            color: #666666;
+            &.flex{
+                display: flex;
+            }
+        }
+        &-status{
+            display: flex;
+            align-items: center;
+            &.task-finshed::before{
+                content: '';
+                width: 34rpx;
+                height: 34rpx;
+                background: url('/static/common/list_tip_tick.svg') no-repeat center / cover;
+                margin-right: 10rpx;
+            }
+            &.task-processed{
+                color: #4F88FF;
+            }
+            &.task-failed, &.task-risk{
+                color: #F13030;
+                &::before{
+                    content: '';
+                    width: 34rpx;
+                    height: 34rpx;
+                    background: url('/static/common/list_tip_fail.svg') no-repeat center / cover;
+                    margin-right: 10rpx;
+                }
+            }
+            &.task-risk::before{
+                background-image: url('/static/common/list_tip_risk.svg');
+            }
+        }
+        &-underway{
+            flex: 1;
+            display: flex;
+            &-text{
+                font-size: 30rpx;
+                font-weight: bold;
+                color: #4F88FF;
+                margin-right: 12rpx;
+            }
+            &-tip{
+                flex: 1;
+                font-size: 24rpx;
+                background-color: #E8F5FF;
+                color: #4F88FF;
+                padding: 3rpx 16rpx;
+            }
+        }
+        &-operate{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 10rpx 30rpx 0 0;
+            width: 100%;
+            &-btn{
+                min-width: 160rpx;
+                height: 54rpx;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28rpx;
+                border-radius: 30rpx;
+                padding: 0 20rpx;
+                &.mr20{
+                    margin-right: 20rpx;
+                }
+                &.mr30{
+                    margin-right: 30rpx;
+                }
+                &.down-btn{
+                    background-color: #4F88FF;
+                    color: #fff;
+                    padding: 0 28rpx;
+                    &::before{
+                        content: '';
+                        width: 30rpx;
+                        height: 30rpx;
+                        margin-right: 10rpx;
+                        background: url('/static/common/btn_share.svg') no-repeat center / cover;
+                    }
+                }
+                &.read-btn, &.cancel-btn{
+                    border: 1px solid #EEEEEE;
+                }
+                &.reason-btn{
+                    background-color: #FF665B;
+                    color: #fff;
+                }
+                &.pay-btn{
+                    background-color: #1DCA6E;
+                    color: #fff;
+                }
+                &.again-btn{
+                    background-color: #ECFFF5;
+                    color: #1DCA6E;
+                }
+                &.view-btn{
+                    background-color: #4F88FF;
+                    color: #fff;
+                }
+                &.share-btn{
+                    border: 2rpx solid #4f88ff;
+                    color: #4F88FF;
+                    background-color: #fff;
+                }
+            }
+        }
+
+    }
+    &-empty{
+        margin: 30rpx;
+        width: calc(100% - 60rpx);
+        min-height: 600rpx;
+        height: calc(100vh - 200rpx);
+        background-color: #fff;
+        border-radius: 14rpx;
+        overflow: hidden;
+    }
+    .tabs-filter{
+        &-box {
+            position: absolute;
+            width: 100%;
+            height: calc(100vh - 100rpx);
+            left: 0;
+            top: 100rpx;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            &.have-activity{
+                top: 180rpx;
+            }
+          }
+      
+          &-content {
+            background-color: #fff;
+            border-radius: 0rpx 0rpx 16rpx 16rpx;
+            padding: 20rpx 0 0;
+            &-scroll{
+                height: 800rpx;
+            }
+            .item {
+              margin: 0 0 30rpx 30rpx;
+      
+              .title {
+                color: rgba(0, 0, 0, 0.9);
+                line-height: 45rpx;
+                margin-bottom: 20rpx;
+                font-size: 32rpx;
+              }
+      
+              .list {
+                display: flex;
+                flex-wrap: wrap;
+      
+                .option {
+                    min-width: 216rpx;
+                    text-align: center;
+                    padding: 0 20rpx;
+                    line-height: 66rpx;
+                    background-color: #eeeeee;
+                    color: #222222;
+                    border-radius: 60rpx;
+                    margin: 0 20rpx 20rpx 0;
+                    font-size: 28rpx;
+                    &.full{
+                        width: 100%;
+                    }
+                    &.active {
+                        background-color: #eff5ff;
+                        color: #4F88FF;
+                        border: 1rpx solid #4F88FF;
+                        font-weight: 600;
+                    }
+                }
+              }
+            }
+      
+            .operate {
+              border-top: 1rpx solid #d9d9d9;
+              display: flex;
+              align-items: center;
+              height: 110rpx;
+              font-size: 32rpx;
+      
+              &-item {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+      
+                &:first-child {
+                  border-right: 1rpx solid #d9d9d9;
+                }
+      
+                &.enter {
+                  color: #4F88FF;
+                }
+              }
+            }
+          }
+    }
+}
+.green-clolr{
+    color: $success-color;
+}
+.bule-clolr{
+    color: $brand-color;
+}
+.red-clolr{
+    color: $error-color;
+}
+.select-type {
+    display: flex;
+    &-item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30rpx;
+        font-size: 32rpx;
+        &::before {
+            content: '';
+            width: 32rpx;
+            height: 32rpx;
+            background: url('~@/static/flow/checkbox_Property_1_del.svg') no-repeat center / cover;
+            margin-right: 12rpx;
+        }
+        &.active::before {
+            background-image: url('~@/static/flow/checkbox_Property_1_sell.svg');
+        }
+        &.radio {
+            &::before {
+                width: 34rpx;
+                height: 34rpx;
+                background-image: url('~@/static/common/icon_radio.svg');
+            }
+            &.active::before {
+                background-image: url('~@/static/common/icon_radio_active.svg');
+            }
+        }
+        &-icon{
+            width: 40rpx;
+            height: 40rpx;
+            margin-right: 4rpx;
+            &.wx-icon{
+                background: url('~@/static/common/icon_wechatpay.svg') no-repeat center / cover;
+            }
+            &.yuen-icon{
+                background: url('~@/static/common/icon_elsepay.svg') no-repeat center / cover;
+            }
+        }
+    }
+}
+.paymodal-invite {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 100rpx;
+    &-box {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 620rpx;
+      height: 59rpx;
+      border-radius: 34.3px;
+      background-color: #fff5ee;
+      font-size: 28rpx;
+      color: #a83b00;
+      padding: 0 30rpx 0 116rpx;
+    }
+    &-text {
+      flex: 1;
+      text-align: right;
+      margin-right: 16rpx;
+      line-height: normal;
+    }
+    &-link {
+      color: #7c4949;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    &-arrow {
+      width: 10rpx;
+    }
+    &-icon {
+      position: absolute;
+      left: 33rpx;
+      top: -2rpx;
+      width: 69rpx;
+      height: 61rpx;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }

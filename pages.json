@@ -1,0 +1,27 @@
+{
+  "pages": [
+    {
+      "path": "pages/Home/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "火烧云",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f6f6f6",
+    "app-plus": {
+      "background": "#efeff4"
+    }
+  },
+  "tabBar": {
+    "color": "#8C9AAB",
+    "selectedColor": "#4F88FF",
+    "borderStyle": "black",
+    "backgroundColor": "#fdfdfd",
+    "custom": false,
+    "list": []
+  }
+}
