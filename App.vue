@@ -6,19 +6,7 @@ import { useBussniessStore } from "@/store/useBussniessStore.js";
 import { getGlobalAllSelect } from "@/common/data";
 let activityTimer = null;
 export default {
-  onLaunch: function (e) {
-    const { getInitSystemParam } = useBussniessStore();
-    const systemData = uni.getStorageSync("systemData");
-    if (!systemData) getInitSystemParam();
-    getGlobalAllSelect();
-    // console.log(e, "e>>>>>>>>>", "某些场景无需再次回显广告");
-    // if (![1011, 1034].includes(e?.scene)) {
-    //   // 触发首页广告弹窗
-    //   activityTimer = setTimeout(() => {
-    //     uni.$emit("showActivityPopup");
-    //   }, 1000);
-    // }
-  },
+  onLaunch: function (e) {},
   onShareAppMessage: function () {},
   onShow: function () {
     // console.log('App Show')
